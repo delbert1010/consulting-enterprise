@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Consulting Enterprise | Desarrollo Web, Logos 3D, Reparación de Crédito y Contabilidad</title>
+<meta name="description" content="Consulting Enterprise: desarrollo de sitios web, creación de logos 3D, reparación de crédito y contabilidad. Cuando el riesgo comienza a superar los beneficios, te ayudamos a recuperar el equilibrio y el control." />
+<meta name="theme-color" content="#0a1426" />
+<meta property="og:title" content="Consulting Enterprise" />
+<meta property="og:description" content="Desarrollo web, logos 3D, reparación de crédito y contabilidad para impulsar tu negocio." />
+<meta property="og:type" content="website" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='44' fill='none' stroke='%231d8fe0' stroke-width='7'/%3E%3Cpolyline points='22,70 44,54 58,64 80,32' fill='none' stroke='%2374c043' stroke-width='9' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpolygon points='70,28 84,26 82,44' fill='%2374c043'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --bg:#070d1a;
+    --bg-2:#0a1426;
+    --surface:#0f1c33;
+    --surface-2:#13243f;
+    --line:rgba(120,160,210,.16);
+    --blue:#1769c4;
+    --blue-bright:#2a93e0;
+    --blue-light:#5bc0f8;
+    --green:#74c043;
+    --green-deep:#4e9d2c;
+    --green-light:#a6dc5e;
+    --silver:#cdd8e3;
+    --text:#eaf2fb;
+    --muted:#9db0c6;
+    --radius:18px;
+    --shadow:0 18px 50px -18px rgba(0,0,0,.7);
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    line-height:1.65;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.brand-word{font-family:'Montserrat',sans-serif;line-height:1.12;letter-spacing:-.02em}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%}
+  section{position:relative}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 22px}
+  .eyebrow{
+    display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--blue-light);background:rgba(43,147,224,.1);border:1px solid rgba(43,147,224,.28);
+    padding:7px 15px;border-radius:999px;margin-bottom:18px;
+  }
+  .gradient-green{background:linear-gradient(135deg,var(--green-light),var(--green) 55%,var(--green-deep));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .gradient-blue{background:linear-gradient(135deg,#eaf6ff,var(--blue-light) 50%,var(--blue-bright));-webkit-background-clip:text;background-clip:text;color:transparent}
+
+  /* ---------- Buttons ---------- */
+  .btn{display:inline-flex;align-items:center;gap:10px;font-weight:700;font-size:1rem;padding:15px 26px;border-radius:999px;border:1px solid transparent;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease,background .18s ease;white-space:nowrap}
+  .btn:active{transform:scale(.97)}
+  .btn-green{background:linear-gradient(135deg,var(--green-light),var(--green) 45%,var(--green-deep));color:#06240a;box-shadow:0 12px 30px -10px rgba(116,192,67,.7)}
+  .btn-green:hover{transform:translateY(-2px);box-shadow:0 18px 38px -10px rgba(116,192,67,.85)}
+  .btn-blue{background:linear-gradient(135deg,var(--blue-bright),var(--blue));color:#fff;box-shadow:0 12px 30px -12px rgba(42,147,224,.7)}
+  .btn-blue:hover{transform:translateY(-2px)}
+  .btn-outline{background:transparent;border-color:rgba(120,160,210,.4);color:var(--text)}
+  .btn-outline:hover{border-color:var(--blue-light);background:rgba(43,147,224,.08)}
+
+  /* ---------- Header ---------- */
+  header{position:fixed;top:0;left:0;right:0;z-index:60;transition:background .3s ease,box-shadow .3s ease,padding .3s ease;padding:16px 0}
+  header.scrolled{background:rgba(7,13,26,.82);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line);padding:10px 0}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:18px}
+  .logo-lockup{display:flex;align-items:center;gap:12px}
+  .logo-lockup svg{width:44px;height:44px;flex:none}
+  .logo-text{display:flex;flex-direction:column;line-height:1}
+  .logo-text .l1{font-family:'Montserrat';font-weight:800;font-size:1.12rem;letter-spacing:.01em}
+  .logo-text .l2{font-size:.62rem;letter-spacing:.34em;text-transform:uppercase;color:var(--muted);margin-top:3px}
+  .nav-links{display:flex;align-items:center;gap:30px}
+  .nav-links a{font-weight:600;font-size:.95rem;color:var(--muted);transition:color .2s}
+  .nav-links a:hover{color:var(--text)}
+  .nav-cta{display:flex;align-items:center;gap:12px}
+  .burger{display:none;background:none;border:0;cursor:pointer;padding:8px}
+  .burger span{display:block;width:26px;height:2.5px;background:var(--text);margin:5px 0;border-radius:3px;transition:.3s}
+
+  /* ---------- Hero ---------- */
+  .hero{padding:150px 0 90px;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;background:
+     radial-gradient(680px 420px at 78% 12%,rgba(116,192,67,.16),transparent 60%),
+     radial-gradient(720px 520px at 14% 8%,rgba(42,147,224,.20),transparent 60%),
+     linear-gradient(180deg,var(--bg-2),var(--bg));z-index:-2}
+  .hero::after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(120,160,210,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(120,160,210,.05) 1px,transparent 1px);background-size:46px 46px;mask-image:radial-gradient(700px 500px at 60% 20%,#000,transparent 75%);z-index:-1;opacity:.6}
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center}
+  .hero h1{font-size:clamp(2.3rem,5vw,3.7rem);font-weight:900;margin-bottom:10px}
+  .hero .slogan{font-size:clamp(1.05rem,2vw,1.32rem);color:var(--silver);font-weight:500;max-width:560px;margin:18px 0 14px;font-style:italic;border-left:3px solid var(--green);padding-left:16px}
+  .hero p.lead{color:var(--muted);font-size:1.06rem;max-width:540px;margin-bottom:30px}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px}
+  .trust{display:flex;flex-wrap:wrap;gap:22px;margin-top:34px;color:var(--muted);font-size:.92rem}
+  .trust div{display:flex;align-items:center;gap:9px}
+  .trust svg{width:18px;height:18px;flex:none}
+  .hero-emblem{display:flex;justify-content:center;align-items:center}
+  .hero-emblem .emblem-glow{filter:drop-shadow(0 30px 60px rgba(42,147,224,.35));animation:float 6s ease-in-out infinite}
+  @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+
+  /* ---------- Section heads ---------- */
+  .section-head{text-align:center;max-width:720px;margin:0 auto 54px}
+  .section-head h2{font-size:clamp(1.9rem,3.6vw,2.7rem);font-weight:800;margin-bottom:14px}
+  .section-head p{color:var(--muted);font-size:1.05rem}
+  .pad{padding:90px 0}
+
+  /* ---------- Services ---------- */
+  .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:22px}
+  .card{position:relative;background:linear-gradient(180deg,var(--surface),var(--bg-2));border:1px solid var(--line);border-radius:var(--radius);padding:30px 26px;transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;overflow:hidden}
+  .card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue-bright),var(--green));transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
+  .card:hover{transform:translateY(-7px);border-color:rgba(91,192,248,.4);box-shadow:var(--shadow)}
+  .card:hover::before{transform:scaleX(1)}
+  .card .icon{width:58px;height:58px;border-radius:14px;display:grid;place-items:center;margin-bottom:20px;background:rgba(42,147,224,.12);border:1px solid rgba(91,192,248,.25)}
+  .card .icon svg{width:30px;height:30px}
+  .card h3{font-size:1.25rem;margin-bottom:10px}
+  .card p{color:var(--muted);font-size:.98rem}
+  .card .more{display:inline-flex;align-items:center;gap:7px;margin-top:16px;color:var(--green-light);font-weight:600;font-size:.92rem}
+
+  /* ---------- Why us ---------- */
+  .why{background:linear-gradient(180deg,var(--bg),var(--bg-2))}
+  .why-grid{display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center}
+  .why-list{display:grid;gap:18px}
+  .why-item{display:flex;gap:16px;align-items:flex-start}
+  .why-item .check{width:42px;height:42px;border-radius:12px;flex:none;display:grid;place-items:center;background:linear-gradient(135deg,rgba(116,192,67,.18),rgba(78,157,44,.12));border:1px solid rgba(116,192,67,.3)}
+  .why-item .check svg{width:22px;height:22px}
+  .why-item h4{font-family:'Montserrat';font-size:1.08rem;margin-bottom:3px}
+  .why-item p{color:var(--muted);font-size:.96rem}
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:6px}
+  .stat{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px 14px;text-align:center}
+  .stat .num{font-family:'Montserrat';font-weight:800;font-size:1.7rem;background:linear-gradient(135deg,var(--blue-light),var(--green));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .stat .lbl{color:var(--muted);font-size:.82rem;margin-top:4px}
+
+  /* ---------- Process ---------- */
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:22px;counter-reset:step}
+  .step{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:28px 24px}
+  .step .n{font-family:'Montserrat';font-weight:900;font-size:2.4rem;line-height:1;background:linear-gradient(135deg,var(--blue-bright),var(--green));-webkit-background-clip:text;background-clip:text;color:transparent;opacity:.95}
+  .step h4{font-family:'Montserrat';margin:10px 0 6px;font-size:1.12rem}
+  .step p{color:var(--muted);font-size:.95rem}
+
+  /* ---------- CTA banner ---------- */
+  .cta-banner{background:linear-gradient(120deg,rgba(42,147,224,.16),rgba(116,192,67,.14));border:1px solid var(--line);border-radius:26px;padding:46px 40px;text-align:center;position:relative;overflow:hidden}
+  .cta-banner h2{font-size:clamp(1.7rem,3.2vw,2.3rem);margin-bottom:12px}
+  .cta-banner p{color:var(--muted);max-width:560px;margin:0 auto 26px}
+  .cta-actions{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+
+  /* ---------- Contact ---------- */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+  .contact-info{display:grid;gap:18px}
+  .info-card{display:flex;gap:16px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px}
+  .info-card .ic{width:48px;height:48px;border-radius:12px;flex:none;display:grid;place-items:center;background:rgba(42,147,224,.12);border:1px solid rgba(91,192,248,.25)}
+  .info-card .ic svg{width:24px;height:24px}
+  .info-card .lbl{font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
+  .info-card .val{font-family:'Montserrat';font-weight:700;font-size:1.05rem;color:var(--text)}
+  .info-card a.val:hover{color:var(--green-light)}
+  .note{color:var(--muted);font-size:.9rem;display:flex;gap:9px;align-items:flex-start}
+  .note svg{width:17px;height:17px;flex:none;margin-top:3px}
+
+  form{background:linear-gradient(180deg,var(--surface),var(--bg-2));border:1px solid var(--line);border-radius:var(--radius);padding:30px 26px;box-shadow:var(--shadow)}
+  .field{margin-bottom:16px}
+  .field label{display:block;font-size:.85rem;font-weight:600;margin-bottom:7px;color:var(--silver)}
+  .field input,.field select,.field textarea{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:13px 15px;color:var(--text);font-family:inherit;font-size:.98rem;transition:border-color .2s,box-shadow .2s}
+  .field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--blue-bright);box-shadow:0 0 0 3px rgba(42,147,224,.18)}
+  .field textarea{resize:vertical;min-height:110px}
+  .field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%239db0c6' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 15px center}
+  .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  form .btn{width:100%;justify-content:center;margin-top:6px}
+  .form-msg{display:none;margin-top:14px;padding:14px 16px;border-radius:12px;font-size:.95rem;font-weight:600}
+  .form-msg.ok{display:block;background:rgba(116,192,67,.14);border:1px solid rgba(116,192,67,.4);color:var(--green-light)}
+  .form-msg.err{display:block;background:rgba(224,80,80,.12);border:1px solid rgba(224,80,80,.4);color:#ff9d9d}
+  .hp{position:absolute;left:-9999px;opacity:0}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--bg-2);border-top:1px solid var(--line);padding:50px 0 26px}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:34px;margin-bottom:34px}
+  .foot-grid p{color:var(--muted);font-size:.95rem;margin-top:14px;max-width:330px}
+  .foot-col h5{font-family:'Montserrat';font-size:.95rem;margin-bottom:14px;letter-spacing:.04em}
+  .foot-col a{display:block;color:var(--muted);font-size:.93rem;margin-bottom:9px;transition:color .2s}
+  .foot-col a:hover{color:var(--text)}
+  .foot-bottom{border-top:1px solid var(--line);padding-top:22px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;color:var(--muted);font-size:.85rem}
+
+  /* ---------- Floating WhatsApp ---------- */
+  .wa-float{position:fixed;right:20px;bottom:20px;z-index:80;display:flex;align-items:center;gap:0;background:#25D366;color:#063d1a;border-radius:999px;padding:14px;box-shadow:0 14px 34px -8px rgba(37,211,102,.6);font-weight:700;transition:gap .3s ease,padding .3s ease,transform .2s}
+  .wa-float svg{width:30px;height:30px;flex:none}
+  .wa-float .wa-label{max-width:0;overflow:hidden;white-space:nowrap;transition:max-width .35s ease,margin .35s ease;font-size:.95rem}
+  .wa-float:hover{transform:translateY(-2px)}
+  .wa-float:hover .wa-label{max-width:180px;margin-left:10px;margin-right:6px}
+  .wa-pulse{position:absolute;inset:0;border-radius:999px;box-shadow:0 0 0 0 rgba(37,211,102,.5);animation:pulse 2.4s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,.5)}70%{box-shadow:0 0 0 16px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+
+  /* ---------- Reveal ---------- */
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ---------- Responsive ---------- */
+  @media(max-width:900px){
+    .hero-grid,.why-grid,.contact-grid{grid-template-columns:1fr}
+    .hero-emblem{order:-1;margin-bottom:6px}
+    .hero-emblem .emblem-glow{width:240px;height:240px}
+    .foot-grid{grid-template-columns:1fr 1fr}
+    .nav-links{display:none}
+    .nav-links.open{display:flex;position:absolute;top:64px;left:14px;right:14px;flex-direction:column;align-items:flex-start;gap:6px;background:rgba(10,20,38,.97);backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:16px;padding:16px 18px}
+    .nav-links.open a{padding:8px 0;width:100%}
+    .burger{display:block}
+    .nav-cta .btn-text{display:none}
+  }
+  @media(max-width:560px){
+    .form-row{grid-template-columns:1fr}
+    .stats{grid-template-columns:1fr 1fr}
+    .foot-grid{grid-template-columns:1fr}
+    .cta-banner{padding:36px 22px}
+    .hero{padding:128px 0 70px}
+  }
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header id="header">
+  <div class="wrap nav">
+    <a href="#inicio" class="logo-lockup" aria-label="Consulting Enterprise inicio">
+      <svg viewBox="0 0 200 200" role="img" aria-label="Logo Consulting Enterprise">
+        <defs>
+          <linearGradient id="ringG" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#5bc0f8"/><stop offset="0.5" stop-color="#1769c4"/><stop offset="1" stop-color="#0c3e7a"/>
+          </linearGradient>
+          <linearGradient id="bldG" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#f1f6fb"/><stop offset="1" stop-color="#9fb0c2"/>
+          </linearGradient>
+          <linearGradient id="arrG" x1="0" y1="1" x2="1" y2="0">
+            <stop offset="0" stop-color="#4e9d2c"/><stop offset="0.55" stop-color="#74c043"/><stop offset="1" stop-color="#a6dc5e"/>
+          </linearGradient>
+        </defs>
+        <circle cx="100" cy="100" r="86" fill="none" stroke="url(#ringG)" stroke-width="11"/>
+        <circle cx="100" cy="100" r="69" fill="none" stroke="url(#ringG)" stroke-width="5" opacity="0.85"/>
+        <g>
+          <rect x="69" y="86" width="15" height="44" rx="2" fill="url(#bldG)"/>
+          <rect x="89" y="66" width="15" height="64" rx="2" fill="url(#bldG)"/>
+          <rect x="109" y="78" width="15" height="52" rx="2" fill="url(#bldG)"/>
+        </g>
+        <polyline points="40,138 74,116 96,130 138,86" fill="none" stroke="url(#arrG)" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/>
+        <polygon points="122,82 152,72 150,104" fill="url(#arrG)"/>
+      </svg>
+      <span class="logo-text">
+        <span class="l1"><span class="gradient-blue">Consulting</span> <span class="gradient-green">Enterprise</span></span>
+        <span class="l2">Soluciones para tu negocio</span>
+      </span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#servicios">Servicios</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#proceso">Proceso</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-green" href="https://wa.me/19548251214?text=Hola%20Consulting%20Enterprise%2C%20me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.728-.979zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        <span class="btn-text">WhatsApp</span>
+      </a>
+      <button class="burger" id="burger" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="inicio">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="eyebrow">Desarrollo Web · Logos 3D · Crédito · Contabilidad</span>
+      <h1><span class="gradient-blue">Consulting</span> <span class="gradient-green">Enterprise</span></h1>
+      <p class="slogan">"Cuando el riesgo comienza a superar los beneficios, nosotros te ayudamos a recuperar el equilibrio y el control."</p>
+      <p class="lead">Impulsamos tu negocio con soluciones digitales y financieras en un solo lugar: sitios web profesionales, logos 3D de alto impacto, reparación de crédito y contabilidad confiable.</p>
+      <div class="hero-actions">
+        <a class="btn btn-green" href="https://wa.me/19548251214?text=Hola%20Consulting%20Enterprise%2C%20me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20servicios." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.728-.979zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          Escríbenos por WhatsApp
+        </a>
+        <a class="btn btn-outline" href="#contacto">Solicitar información</a>
+      </div>
+      <div class="trust">
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="#74c043" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg> Atención personalizada</div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="#74c043" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg> Sur de Florida</div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="#74c043" stroke-width="2.4"><path d="M20 6L9 17l-5-5"/></svg> Respuesta rápida</div>
+      </div>
+    </div>
+    <div class="hero-emblem">
+      <svg class="emblem-glow" width="330" height="330" viewBox="0 0 200 200" role="img" aria-label="Emblema Consulting Enterprise">
+        <defs>
+          <radialGradient id="bg2" cx="50%" cy="40%" r="70%">
+            <stop offset="0" stop-color="#11233f"/><stop offset="1" stop-color="#070d1a"/>
+          </radialGradient>
+          <linearGradient id="ringBig" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#7fd0ff"/><stop offset="0.45" stop-color="#1769c4"/><stop offset="1" stop-color="#0a3a72"/>
+          </linearGradient>
+          <linearGradient id="bldBig" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#93a6ba"/>
+          </linearGradient>
+          <linearGradient id="arrBig" x1="0" y1="1" x2="1" y2="0">
+            <stop offset="0" stop-color="#3f8a23"/><stop offset="0.5" stop-color="#74c043"/><stop offset="1" stop-color="#b6e472"/>
+          </linearGradient>
+          <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+            <feGaussianBlur stdDeviation="2.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+        <circle cx="100" cy="100" r="95" fill="url(#bg2)"/>
+        <circle cx="100" cy="100" r="86" fill="none" stroke="url(#ringBig)" stroke-width="12" filter="url(#soft)"/>
+        <circle cx="100" cy="100" r="67" fill="none" stroke="url(#ringBig)" stroke-width="6" opacity="0.9"/>
+        <g filter="url(#soft)">
+          <rect x="66" y="84" width="17" height="48" rx="2.5" fill="url(#bldBig)"/>
+          <rect x="88" y="60" width="17" height="72" rx="2.5" fill="url(#bldBig)"/>
+          <rect x="110" y="74" width="17" height="58" rx="2.5" fill="url(#bldBig)"/>
+        </g>
+        <polyline points="36,140 74,114 98,130 142,84" fill="none" stroke="url(#arrBig)" stroke-width="17" stroke-linecap="round" stroke-linejoin="round" filter="url(#soft)"/>
+        <polygon points="124,80 158,68 156,106" fill="url(#arrBig)" filter="url(#soft)"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="pad" id="servicios">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Nuestros servicios</span>
+      <h2>Todo lo que tu negocio necesita, <span class="gradient-green">en un solo lugar</span></h2>
+      <p>Cuatro especialidades pensadas para que tu empresa crezca con bases sólidas, una imagen profesional y finanzas sanas.</p>
+    </div>
+    <div class="services-grid">
+
+      <article class="card reveal">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="#5bc0f8" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+        <h3>Desarrollo de Sitios Web</h3>
+        <p>Sitios modernos, rápidos y responsivos que convierten visitantes en clientes. Diseño a la medida, optimizado para Google y listo para vender.</p>
+        <a class="more" href="#contacto">Cotizar mi sitio →</a>
+      </article>
+
+      <article class="card reveal">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="#74c043" stroke-width="2"><path d="M12 2l3 6 6 .9-4.5 4.3 1 6.3L12 17l-5.5 2.8 1-6.3L3 8.9 9 8z"/></svg></div>
+        <h3>Creación de Logos 3D</h3>
+        <p>Identidad visual de alto impacto. Diseñamos logos en 3D que hacen que tu marca destaque, se recuerde y proyecte profesionalismo.</p>
+        <a class="more" href="#contacto">Diseñar mi logo →</a>
+      </article>
+
+      <article class="card reveal">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="#5bc0f8" stroke-width="2"><path d="M3 12a9 9 0 1018 0 9 9 0 00-18 0z"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3>Reparación de Crédito</h3>
+        <p>Recupera tu poder financiero. Analizamos tu reporte, disputamos lo que corresponde y te guiamos paso a paso para mejorar tu puntaje.</p>
+        <a class="more" href="#contacto">Mejorar mi crédito →</a>
+      </article>
+
+      <article class="card reveal">
+        <div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="#74c043" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div>
+        <h3>Contabilidad</h3>
+        <p>Lleva el control de tus finanzas con contabilidad clara y confiable para personas y empresas. Orden, cumplimiento y tranquilidad.</p>
+        <a class="more" href="#contacto">Ordenar mis finanzas →</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY US ============ -->
+<section class="pad why" id="nosotros">
+  <div class="wrap why-grid">
+    <div class="reveal">
+      <span class="eyebrow">Por qué elegirnos</span>
+      <h2>Un equipo que trabaja <span class="gradient-blue">contigo</span>, no solo para ti</h2>
+      <p style="color:var(--muted);margin:14px 0 26px;max-width:520px">Somos una empresa con trato cercano y directo. Entendemos tus metas y diseñamos soluciones reales para que tu negocio y tus finanzas avancen con seguridad.</p>
+      <div class="stats">
+        <div class="stat"><div class="num">4</div><div class="lbl">Servicios integrales</div></div>
+        <div class="stat"><div class="num">100%</div><div class="lbl">Atención personalizada</div></div>
+        <div class="stat"><div class="num">24h</div><div class="lbl">Respuesta ágil</div></div>
+      </div>
+    </div>
+    <div class="why-list">
+      <div class="why-item reveal">
+        <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#74c043" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg></div>
+        <div><h4>Soluciones todo en uno</h4><p>Web, marca, crédito y contabilidad sin tener que buscar varios proveedores.</p></div>
+      </div>
+      <div class="why-item reveal">
+        <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#74c043" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg></div>
+        <div><h4>Trato directo y confiable</h4><p>Hablas con quienes hacen el trabajo. Comunicación clara en cada paso.</p></div>
+      </div>
+      <div class="why-item reveal">
+        <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#74c043" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg></div>
+        <div><h4>Enfoque en resultados</h4><p>Estrategias prácticas pensadas para hacer crecer tu negocio y tu tranquilidad.</p></div>
+      </div>
+      <div class="why-item reveal">
+        <div class="check"><svg viewBox="0 0 24 24" fill="none" stroke="#74c043" stroke-width="2.6"><path d="M20 6L9 17l-5-5"/></svg></div>
+        <div><h4>Servicio en el sur de Florida</h4><p>Atendemos de forma remota y con cita previa. Donde estés, te acompañamos.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section class="pad" id="proceso">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Cómo trabajamos</span>
+      <h2>Un proceso simple y <span class="gradient-green">transparente</span></h2>
+      <p>Desde la primera conversación hasta los resultados, te acompañamos en cada etapa.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="n">1</div><h4>Conversamos</h4><p>Nos cuentas tu meta o tu reto. Escuchamos y entendemos tu situación.</p></div>
+      <div class="step reveal"><div class="n">2</div><h4>Diseñamos un plan</h4><p>Creamos una estrategia a la medida con tiempos y costos claros.</p></div>
+      <div class="step reveal"><div class="n">3</div><h4>Ejecutamos</h4><p>Ponemos manos a la obra con calidad y comunicación constante.</p></div>
+      <div class="step reveal"><div class="n">4</div><h4>Crecemos juntos</h4><p>Entregamos resultados y seguimos apoyándote a largo plazo.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="pad" id="contacto">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Contáctanos</span>
+      <h2>Hablemos de tu <span class="gradient-blue">proyecto</span></h2>
+      <p>Escríbenos por WhatsApp o déjanos tus datos. Te respondemos lo antes posible.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <a class="info-card" href="https://wa.me/19548251214?text=Hola%20Consulting%20Enterprise%2C%20me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n." target="_blank" rel="noopener">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="#25D366"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.728-.979zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg></div>
+          <div><div class="lbl">WhatsApp</div><div class="val">954-825-1214</div></div>
+        </a>
+        <a class="info-card" href="tel:+19543947439">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#5bc0f8" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.36 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0122 16.92z"/></svg></div>
+          <div><div class="lbl">Teléfono</div><div class="val">954-394-7439</div></div>
+        </a>
+        <a class="info-card" href="mailto:delbert@consultingenterprisemrm.com">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#74c043" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg></div>
+          <div><div class="lbl">Correo</div><div class="val">delbert@consultingenterprisemrm.com</div></div>
+        </a>
+        <div class="note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#9db0c6" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+          <span>Atendemos en el sur de Florida de forma remota y con cita previa. Solicita tu cita por WhatsApp o por el formulario.</span>
+        </div>
+      </div>
+
+      <form id="leadForm" class="reveal" action="https://formsubmit.co/delbert@consultingenterprisemrm.com" method="POST">
+        <!-- Configuración FormSubmit -->
+        <input type="hidden" name="_subject" value="Nuevo contacto desde la página web - Consulting Enterprise" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" />
+
+        <div class="form-row">
+          <div class="field">
+            <label for="nombre">Nombre completo *</label>
+            <input id="nombre" name="Nombre" type="text" placeholder="Tu nombre" required />
+          </div>
+          <div class="field">
+            <label for="telefono">Teléfono *</label>
+            <input id="telefono" name="Telefono" type="tel" placeholder="(954) 000-0000" required />
+          </div>
+        </div>
+        <div class="field">
+          <label for="email">Correo electrónico</label>
+          <input id="email" name="Correo" type="email" placeholder="tucorreo@ejemplo.com" />
+        </div>
+        <div class="field">
+          <label for="servicio">Servicio de interés *</label>
+          <select id="servicio" name="Servicio" required>
+            <option value="" disabled selected>Selecciona una opción</option>
+            <option>Desarrollo de sitio web</option>
+            <option>Creación de logo 3D</option>
+            <option>Reparación de crédito</option>
+            <option>Contabilidad</option>
+            <option>Varios / No estoy seguro</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="mensaje">Mensaje</label>
+          <textarea id="mensaje" name="Mensaje" placeholder="Cuéntanos brevemente qué necesitas..."></textarea>
+        </div>
+        <button class="btn btn-green" type="submit">Enviar mi solicitud</button>
+        <div class="form-msg" id="formMsg"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA BANNER ============ -->
+<section class="wrap" style="padding-bottom:90px">
+  <div class="cta-banner reveal">
+    <h2>¿Listo para recuperar el <span class="gradient-green">equilibrio y el control</span>?</h2>
+    <p>Da el primer paso hoy. Escríbenos y recibe una orientación sin compromiso.</p>
+    <div class="cta-actions">
+      <a class="btn btn-green" href="https://wa.me/19548251214?text=Hola%20Consulting%20Enterprise%2C%20quiero%20una%20orientaci%C3%B3n%20sin%20compromiso." target="_blank" rel="noopener">Hablar por WhatsApp</a>
+      <a class="btn btn-blue" href="#contacto">Llenar formulario</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="logo-lockup">
+          <svg viewBox="0 0 200 200" width="44" height="44" aria-hidden="true">
+            <circle cx="100" cy="100" r="86" fill="none" stroke="url(#ringG)" stroke-width="11"/>
+            <circle cx="100" cy="100" r="69" fill="none" stroke="url(#ringG)" stroke-width="5" opacity="0.85"/>
+            <rect x="69" y="86" width="15" height="44" rx="2" fill="url(#bldG)"/>
+            <rect x="89" y="66" width="15" height="64" rx="2" fill="url(#bldG)"/>
+            <rect x="109" y="78" width="15" height="52" rx="2" fill="url(#bldG)"/>
+            <polyline points="40,138 74,116 96,130 138,86" fill="none" stroke="url(#arrG)" stroke-width="15" stroke-linecap="round" stroke-linejoin="round"/>
+            <polygon points="122,82 152,72 150,104" fill="url(#arrG)"/>
+          </svg>
+          <span class="logo-text">
+            <span class="l1"><span class="gradient-blue">Consulting</span> <span class="gradient-green">Enterprise</span></span>
+            <span class="l2">Soluciones para tu negocio</span>
+          </span>
+        </div>
+        <p>Cuando el riesgo comienza a superar los beneficios, nosotros te ayudamos a recuperar el equilibrio y el control.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Servicios</h5>
+        <a href="#servicios">Desarrollo Web</a>
+        <a href="#servicios">Logos 3D</a>
+        <a href="#servicios">Reparación de Crédito</a>
+        <a href="#servicios">Contabilidad</a>
+      </div>
+      <div class="foot-col">
+        <h5>Contacto</h5>
+        <a href="https://wa.me/19548251214" target="_blank" rel="noopener">WhatsApp: 954-825-1214</a>
+        <a href="tel:+19543947439">Tel: 954-394-7439</a>
+        <a href="mailto:delbert@consultingenterprisemrm.com">delbert@consultingenterprisemrm.com</a>
+        <a href="#contacto">Formulario de contacto</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year"></span> Consulting Enterprise MRM. Todos los derechos reservados.</span>
+      <span>Sur de Florida · Atención con cita previa</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ FLOATING WHATSAPP ============ -->
+<a class="wa-float" href="https://wa.me/19548251214?text=Hola%20Consulting%20Enterprise%2C%20me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n." target="_blank" rel="noopener" aria-label="Chatear por WhatsApp">
+  <span class="wa-pulse"></span>
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.728-.979zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+  <span class="wa-label">Chatea con nosotros</span>
+</a>
+
+<script>
+  // Año dinámico
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Header con fondo al hacer scroll
+  const header = document.getElementById('header');
+  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 30);
+  onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+
+  // Menú móvil
+  const burger = document.getElementById('burger');
+  const navLinks = document.getElementById('navLinks');
+  burger.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  // Animaciones al hacer scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  }, {threshold:.14});
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Envío del formulario vía FormSubmit (AJAX) -> llega al correo
+  const form = document.getElementById('leadForm');
+  const msg = document.getElementById('formMsg');
+  form.addEventListener('submit', async (ev) => {
+    ev.preventDefault();
+    const btn = form.querySelector('button[type=submit]');
+    const original = btn.textContent;
+    btn.textContent = 'Enviando...'; btn.disabled = true;
+    msg.className = 'form-msg';
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/delbert@consultingenterprisemrm.com', {
+        method:'POST',
+        headers:{'Content-Type':'application/json','Accept':'application/json'},
+        body: JSON.stringify(Object.fromEntries(new FormData(form).entries()))
+      });
+      if(res.ok){
+        form.reset();
+        msg.className = 'form-msg ok';
+        msg.textContent = '¡Gracias! Recibimos tu solicitud. Te contactaremos muy pronto.';
+      } else { throw new Error('fail'); }
+    } catch(err){
+      msg.className = 'form-msg err';
+      msg.innerHTML = 'No se pudo enviar en este momento. Escríbenos directo por WhatsApp al <a href="https://wa.me/19548251214" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline">954-825-1214</a>.';
+    } finally {
+      btn.textContent = original; btn.disabled = false;
+    }
+  });
+</script>
+</body>
+</html>
