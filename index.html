@@ -113,6 +113,28 @@ header.scrolled{background:rgba(7,10,20,.78);-webkit-backdrop-filter:blur(14px);
 .hero h1 .blue{text-shadow:0 0 34px rgba(47,140,255,.45)}
 .hero h1 .green{text-shadow:0 0 34px rgba(127,211,39,.4)}
 @keyframes lineIn{to{opacity:1;transform:none}}
+/* neón: cada frase se enciende una tras otra, se queda prendida y vuelve a empezar */
+body .neon.neon .blue{animation-name:lineIn,neonB}
+body .neon.neon .green{animation-name:lineIn,neonG}
+body .neon.neon span{animation-duration:.9s,10s;animation-timing-function:cubic-bezier(.2,.7,.2,1),linear;animation-fill-mode:forwards,both;animation-iteration-count:1,infinite}
+body .neon.neon span:nth-child(1){animation-delay:0s,1.2s}
+body .neon.neon span:nth-child(2){animation-delay:.35s,1.7s}
+body .neon.neon span:nth-child(3){animation-delay:.7s,2.2s}
+body .final .neon.neon span{animation-duration:.01s,10s}
+@keyframes neonB{
+  0%,100%{color:#1f3f73;text-shadow:none}
+  2%{color:#2f8cff;text-shadow:0 0 8px rgba(47,140,255,.9),0 0 30px rgba(47,140,255,.6)}
+  3%{color:#1f3f73;text-shadow:none}
+  5%,86%{color:#2f8cff;text-shadow:0 0 8px rgba(47,140,255,.8),0 0 34px rgba(47,140,255,.55)}
+  90%{color:#2f8cff;text-shadow:0 0 6px rgba(47,140,255,.5),0 0 20px rgba(47,140,255,.3)}
+  94%{color:#1f3f73;text-shadow:none}}
+@keyframes neonG{
+  0%,100%{color:#3b5e16;text-shadow:none}
+  2%{color:#7fd327;text-shadow:0 0 8px rgba(127,211,39,.9),0 0 30px rgba(127,211,39,.55)}
+  3%{color:#3b5e16;text-shadow:none}
+  5%,86%{color:#7fd327;text-shadow:0 0 8px rgba(127,211,39,.75),0 0 34px rgba(127,211,39,.5)}
+  90%{color:#7fd327;text-shadow:0 0 6px rgba(127,211,39,.45),0 0 20px rgba(127,211,39,.3)}
+  94%{color:#3b5e16;text-shadow:none}}
 .hero .lead{font-size:1.15rem;color:#c3d0e4;max-width:560px;margin:26px 0 34px;opacity:0;animation:lineIn .9s 1s forwards}
 .hero-actions{display:flex;flex-wrap:wrap;opacity:0;animation:lineIn .9s 1.15s forwards}
 .hero-actions .btn{margin:0 14px 14px 0}
@@ -144,10 +166,14 @@ header.scrolled{background:rgba(7,10,20,.78);-webkit-backdrop-filter:blur(14px);
 
 /* ---------- servicios ---------- */
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-.card{position:relative;padding:30px 28px 28px;border-radius:var(--radius);background:linear-gradient(180deg,var(--surface),#0b1428);border:1px solid var(--line);transform-style:preserve-3d;transition:transform .2s ease-out,border-color .3s,box-shadow .3s;overflow:hidden}
-.card:before{content:"";position:absolute;inset:0;background:radial-gradient(400px circle at var(--mx,50%) var(--my,0%),rgba(47,140,255,.13),transparent 45%);opacity:0;transition:opacity .3s;pointer-events:none}
-.card:hover{border-color:var(--line2);box-shadow:0 30px 60px -30px rgba(0,0,0,.9)}
-.card:hover:before{opacity:1}
+.card{position:relative;padding:30px 28px 28px;border-radius:var(--radius);background:linear-gradient(180deg,var(--surface),#0b1428);border:1px solid var(--line);transform-style:preserve-3d;transition:transform .35s ease-out,border-color .35s,box-shadow .35s;overflow:hidden}
+.card:before{content:"";position:absolute;inset:0;background:radial-gradient(420px circle at var(--mx,50%) var(--my,25%),rgba(47,140,255,.24),transparent 50%);opacity:0;transition:opacity .35s;pointer-events:none}
+.card:hover,.card.lit{border-color:rgba(47,140,255,.6);box-shadow:0 0 0 1px rgba(47,140,255,.25),0 28px 60px -26px rgba(47,140,255,.5)}
+.card.lit{transform:translateY(-6px) scale(1.02)}
+.card:hover:before,.card.lit:before{opacity:1}
+.card .ico{transition:box-shadow .35s,border-color .35s}
+.card:hover .ico,.card.lit .ico{border-color:rgba(127,211,39,.5);box-shadow:0 0 26px -2px rgba(127,211,39,.45)}
+.card:hover a:after,.card.lit a:after{transform:translateX(5px)}
 .ico{width:54px;height:54px;border-radius:16px;display:flex;align-items:center;justify-content:center;margin-bottom:22px;background:linear-gradient(145deg,rgba(47,140,255,.2),rgba(127,211,39,.12));border:1px solid var(--line2);transform:translateZ(30px)}
 .ico svg{width:26px;height:26px}
 .card h3{font-size:1.22rem;font-weight:800;margin-bottom:10px}
@@ -167,7 +193,7 @@ header.scrolled{background:rgba(7,10,20,.78);-webkit-backdrop-filter:blur(14px);
 .panel input:focus,.panel select:focus,.form input:focus,.form select:focus,.form textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(47,140,255,.2)}
 .panel select option,.form select option{background:#0e1830}
 .swatches{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
-.sw{aspect-ratio:1;border-radius:50%;border:2px solid transparent;cursor:pointer;box-shadow:0 0 0 1px rgba(255,255,255,.15) inset;transition:transform .2s}
+.sw{aspect-ratio:1;border-radius:50%;border:2px solid transparent;cursor:pointer;box-shadow:0 0 0 1px rgba(255,255,255,.15) inset;transition:transform .2s;background:linear-gradient(135deg,var(--a) 50%,var(--b) 50%)}
 .sw:hover{transform:scale(1.08)}
 .sw.on{border-color:#fff;transform:scale(1.08)}
 .panel .note{font-size:.86rem;color:var(--muted);margin-top:4px}
@@ -179,20 +205,21 @@ header.scrolled{background:rgba(7,10,20,.78);-webkit-backdrop-filter:blur(14px);
 .bbar i{width:10px;height:10px;border-radius:50%;margin-right:7px;background:#ff5f57}
 .bbar i:nth-child(2){background:#febc2e}.bbar i:nth-child(3){background:#28c840}
 .bbar .url{flex:1;margin-left:14px;height:20px;border-radius:6px;background:#fff;font-size:.72rem;color:#5b6680;display:flex;align-items:center;padding:0 10px;overflow:hidden;white-space:nowrap}
-.ms{--c:#2f8cff;font-family:'Inter',sans-serif}
+.ms{--c:#1d4ed8;--s:#f5b301;font-family:'Inter',sans-serif;border-top:4px solid var(--s)}
 .ms-nav{display:flex;align-items:center;justify-content:space-between;padding:14px 22px;border-bottom:1px solid #eef0f4}
 .ms-logo{display:flex;align-items:center;font-family:'Montserrat';font-weight:800;font-size:.95rem;color:#111}
-.ms-logo b{width:30px;height:30px;border-radius:9px;background:var(--c);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.78rem;margin-right:9px;transition:background .4s}
+.ms-logo b{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,var(--c) 55%,var(--s));color:#fff;display:flex;align-items:center;justify-content:center;font-size:.78rem;margin-right:9px;transition:background .4s}
 .ms-menu span{font-size:.74rem;color:#555;margin-left:16px;font-weight:600}
-.ms-hero{position:relative;padding:40px 22px 34px;overflow:hidden;background:linear-gradient(135deg,var(--c1,#e6f0ff),#fff 70%);transition:background .4s}
-.ms-hero:after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;background:var(--c);opacity:.12;transition:background .4s}
+.ms-hero{position:relative;padding:40px 22px 34px;overflow:hidden;background:linear-gradient(135deg,var(--c1,#e6edff),#fff 55%,var(--s1,#fff6dc));transition:background .4s}
+.ms-hero:after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;border-radius:50%;background:var(--s);opacity:.22;transition:background .4s}
 .ms-tag{display:inline-block;font-size:.66rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--c);margin-bottom:10px;transition:color .4s}
 .ms-hero h4{font-size:1.6rem;font-weight:800;color:#0f172a;max-width:420px;line-height:1.15}
 .ms-hero p{font-size:.84rem;color:#4b5563;margin:10px 0 18px;max-width:380px}
-.ms-btn{display:inline-block;padding:10px 18px;border-radius:999px;background:var(--c);color:#fff;font-weight:700;font-size:.8rem;transition:background .4s;box-shadow:0 8px 20px -8px var(--c)}
+.ms-btn{display:inline-block;padding:10px 18px;border-radius:999px;background:var(--c);color:#fff;border-bottom:3px solid var(--s);font-weight:700;font-size:.8rem;transition:background .4s;box-shadow:0 8px 20px -8px var(--c)}
 .ms-items{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:20px 22px 24px}
+.ms-items div:nth-child(2) i{background:var(--s2,#ffefb8)}
 .ms-items div{border:1px solid #eef0f4;border-radius:12px;padding:14px 12px;font-size:.78rem;font-weight:700;color:#1f2937}
-.ms-items div i{display:block;width:26px;height:26px;border-radius:8px;margin-bottom:9px;background:var(--c2,#dbe9ff);transition:background .4s}
+.ms-items div i{display:block;width:26px;height:26px;border-radius:8px;margin-bottom:9px;background:var(--c2,#dbe5ff);transition:background .4s}
 .mini-phone{position:absolute;right:0;bottom:-10px;width:170px;aspect-ratio:9/19;border-radius:28px;padding:7px;background:linear-gradient(145deg,#2a3346,#0c111d);box-shadow:0 40px 80px -25px rgba(0,0,0,.95),0 0 0 1px rgba(255,255,255,.08);transform:rotateY(-12deg) rotateX(4deg);transition:transform .6s}
 .preview:hover .mini-phone{transform:rotateY(-4deg) translateY(-6px)}
 .mini-phone .scr{width:100%;height:100%;border-radius:22px;overflow:hidden;background:#fff}
@@ -240,6 +267,29 @@ header.scrolled{background:rgba(7,10,20,.78);-webkit-backdrop-filter:blur(14px);
 .ok{background:rgba(127,211,39,.16);color:var(--green)}
 .pend{background:rgba(47,140,255,.16);color:var(--blue-l)}
 .base{height:14px;margin:0 -4%;border-radius:0 0 14px 14px;background:linear-gradient(180deg,#3a4458,#151b28)}
+
+/* ---------- trabajos realizados ---------- */
+.works{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.work{display:flex;flex-direction:column;border-radius:var(--radius);background:linear-gradient(180deg,var(--surface),#0b1428);border:1px solid var(--line);overflow:hidden;transition:border-color .3s,transform .3s}
+.work:hover,.work.lit{border-color:rgba(47,140,255,.6);transform:translateY(-6px);box-shadow:0 0 0 1px rgba(47,140,255,.25),0 28px 60px -26px rgba(47,140,255,.5)}
+.w-shot{position:relative;height:330px;perspective:1100px;display:flex;justify-content:center;padding-top:26px;overflow:hidden;background:radial-gradient(260px 200px at 50% 70%,rgba(47,140,255,.16),transparent 70%)}
+.w-phone{width:178px;height:372px;border-radius:30px;padding:7px;background:linear-gradient(145deg,#2a3346,#0c111d 45%,#1d2535);box-shadow:0 0 0 1px rgba(255,255,255,.08) inset,0 30px 60px -20px rgba(0,0,0,.9);transform:rotateX(14deg) rotateY(-10deg);transform-origin:center top;transition:transform .7s cubic-bezier(.2,.7,.2,1)}
+.work:hover .w-phone,.work.lit .w-phone{transform:rotateX(4deg) rotateY(0) translateY(-6px)}
+.w-phone img{width:100%;height:100%;object-fit:cover;object-position:top;border-radius:24px;background:#fff}
+.w-shot:after{content:"";position:absolute;left:0;right:0;bottom:0;height:70px;background:linear-gradient(180deg,transparent,#0d172e)}
+.w-body{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}
+.w-tag{font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue-l);margin-bottom:8px}
+.w-body h3{font-size:1.12rem;font-weight:800;margin-bottom:12px}
+.w-body ul{list-style:none;margin-bottom:16px}
+.w-body li{position:relative;padding-left:18px;font-size:.9rem;color:var(--muted);margin-bottom:7px;line-height:1.5}
+.w-body li:before{content:"";position:absolute;left:0;top:.55em;width:7px;height:7px;border-radius:50%;background:var(--green)}
+.w-foot{margin-top:auto;font-size:.88rem;font-weight:700}
+.w-foot a{color:var(--green)}
+.w-foot a:after{content:" →"}
+.w-foot span{color:#6f7f9b;font-weight:600}
+.w-badge{align-self:flex-start;margin-bottom:12px;font-size:.66rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:5px 9px;border-radius:999px;background:rgba(127,211,39,.14);color:var(--green);border:1px solid rgba(127,211,39,.3)}
+.w-badge.demo{background:rgba(47,140,255,.14);color:var(--blue-l);border-color:rgba(47,140,255,.3)}
+.works .rv:nth-child(2){transition-delay:.08s}.works .rv:nth-child(3){transition-delay:.16s}.works .rv:nth-child(4){transition-delay:.24s}
 
 /* ---------- proceso ---------- */
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;position:relative}
@@ -304,6 +354,9 @@ footer{border-top:1px solid var(--line);padding:46px 0 34px;background:#05070e}
 .cards .rv:nth-child(4),.steps .rv:nth-child(4){transition-delay:.24s}
 .cards .rv:nth-child(5){transition-delay:.32s}
 .cards .rv:nth-child(6){transition-delay:.4s}
+.rv.done{transition:transform .35s ease-out,border-color .35s,box-shadow .35s;transition-delay:0s!important}
+.cards .card.lit{transform:translateY(-6px) scale(1.02)}
+.works .work:hover,.works .work.lit{transform:translateY(-6px)}
 
 /* ---------- responsive ---------- */
 @media (max-width:1020px){
@@ -315,6 +368,7 @@ footer{border-top:1px solid var(--line);padding:46px 0 34px;background:#05070e}
   .hero{padding-top:110px}
   .stage{margin-top:20px}
   .cards{grid-template-columns:1fr 1fr}
+  .works{grid-template-columns:1fr 1fr}
   .steps{grid-template-columns:1fr 1fr;row-gap:40px}
   .steps:before,.steps:after{display:none}
   .preview{min-height:0;padding-bottom:40px}
@@ -329,6 +383,7 @@ footer{border-top:1px solid var(--line);padding:46px 0 34px;background:#05070e}
   .nav-cta .btn svg{margin-right:0}
   .brand small{display:none}
   .cards{grid-template-columns:1fr}
+  .works{grid-template-columns:1fr}
   .steps{grid-template-columns:1fr}
   .hero-actions .btn{width:100%;margin-right:0}
   .chip{font-size:.74rem;padding:8px 11px}
@@ -366,7 +421,7 @@ footer{border-top:1px solid var(--line);padding:46px 0 34px;background:#05070e}
     <nav class="nav-links" id="navLinks">
       <a href="#servicios">Servicios</a>
       <a href="#su-marca">Su marca en vivo</a>
-      <a href="#sistemas">Sistemas</a>
+      <a href="#trabajos">Trabajos</a>
       <a href="#proceso">Cómo trabajamos</a>
       <a href="#contacto">Contacto</a>
     </nav>
@@ -383,7 +438,7 @@ footer{border-top:1px solid var(--line);padding:46px 0 34px;background:#05070e}
   <div class="wrap hero-grid">
     <div>
       <span class="eyebrow">Páginas web · Sistemas a la medida · Logos 3D</span>
-      <h1><span class="blue">Usted lo sueña.</span><span class="green">Nosotros lo programamos.</span><span class="blue">Así de fácil.</span></h1>
+      <h1 class="neon"><span class="blue">Usted lo sueña.</span><span class="green">Nosotros lo programamos.</span><span class="blue">Así de fácil.</span></h1>
       <p class="lead">Le construimos la página web, el sistema o la imagen que su negocio necesita, hecha a la medida de su marca y de lo que usted hace. Todo en español y explicado fácil.</p>
       <div class="hero-actions">
         <a class="btn btn-green" href="https://wa.me/19548251214?text=Hola%20Consulting%20Enterprise%2C%20tengo%20una%20idea%20para%20mi%20negocio%20y%20me%20gustar%C3%ADa%20m%C3%A1s%20informaci%C3%B3n." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.728-.979zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>Escríbanos por WhatsApp</a>
@@ -476,7 +531,7 @@ footer{border-top:1px solid var(--line);padding:46px 0 34px;background:#05070e}
     <div class="sec-head rv">
       <span class="eyebrow">Su marca en vivo</span>
       <h2>Vea cómo podría verse <span class="green">su página</span></h2>
-      <p>Escriba el nombre de su negocio, escoja qué tipo de negocio es y un color. La muestra cambia al momento, en computadora y en celular.</p>
+      <p>Escriba el nombre de su negocio y a qué se dedica. La muestra cambia al momento, en computadora y en celular.</p>
     </div>
     <div class="live-grid">
       <div class="panel rv">
@@ -485,31 +540,11 @@ footer{border-top:1px solid var(--line);padding:46px 0 34px;background:#05070e}
           <input id="bName" type="text" maxlength="28" placeholder="Escriba aquí el nombre" autocomplete="off" />
         </div>
         <div class="field">
-          <label for="bType"><span class="step">2</span>¿Qué tipo de negocio es?</label>
-          <select id="bType">
-            <option value="barberia">Barbería</option>
-            <option value="restaurante">Restaurante o comida</option>
-            <option value="taller">Taller mecánico</option>
-            <option value="clinica">Clínica o consultorio</option>
-            <option value="tienda">Tienda</option>
-            <option value="spa">Spa o estética</option>
-            <option value="repuestos">Repuestos</option>
-            <option value="profesional">Servicios profesionales</option>
-          </select>
-        </div>
-        <div class="field">
-          <label><span class="step">3</span>Escoja un color</label>
-          <div class="swatches" id="swatches">
-            <button class="sw on" style="background:#2f8cff" data-c="#2f8cff" aria-label="Azul"></button>
-            <button class="sw" style="background:#4f9a12" data-c="#4f9a12" aria-label="Verde"></button>
-            <button class="sw" style="background:#c0392b" data-c="#c0392b" aria-label="Rojo"></button>
-            <button class="sw" style="background:#e08a00" data-c="#e08a00" aria-label="Naranja"></button>
-            <button class="sw" style="background:#7b3fe4" data-c="#7b3fe4" aria-label="Morado"></button>
-            <button class="sw" style="background:#111827" data-c="#111827" aria-label="Negro"></button>
-          </div>
+          <label for="bType"><span class="step">2</span>¿A qué se dedica su negocio?</label>
+          <input id="bType" type="text" maxlength="40" placeholder="Por ejemplo: barbería, panadería, repuestos" autocomplete="off" />
         </div>
         <a class="btn btn-green" id="liveCta" href="https://wa.me/19548251214" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.728-.979zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>Quiero una así</a>
-        <p class="note">Al presionar el botón verde se abre WhatsApp con los datos que escogió, listos para enviar.</p>
+        <p class="note" style="margin-top:12px">Al presionar el botón verde se abre WhatsApp con lo que usted escribió, listo para enviar.</p>
       </div>
       <div class="preview rv" id="preview">
         <div class="browser">
@@ -519,7 +554,7 @@ footer{border-top:1px solid var(--line);padding:46px 0 34px;background:#05070e}
         <div class="mini-phone"><div class="scr"><div class="ms" id="msMob"></div></div></div>
       </div>
     </div>
-    <p class="live-foot rv">Esto es solo una muestra. Su página de verdad se diseña desde cero con su logo, sus fotos y sus textos.</p>
+    <p class="live-foot rv">Esto es solo una muestra. Su página de verdad se diseña desde cero con su logo, sus colores, sus fotos y sus textos.</p>
   </div>
 </section>
 
@@ -567,6 +602,79 @@ footer{border-top:1px solid var(--line);padding:46px 0 34px;background:#05070e}
         <div class="base"></div>
       </div>
       <p style="color:#6f7f9b;font-size:.8rem;text-align:center;margin-top:16px">Pantalla de ejemplo con datos de muestra.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRABAJOS REALIZADOS ============ -->
+<section class="sec" id="trabajos" style="border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Trabajos realizados</span>
+      <h2>Algunos sistemas que <span class="blue">ya hemos construido</span></h2>
+      <p>Cada uno está hecho a la medida del negocio: con su logo, sus colores y su forma de trabajar.</p>
+    </div>
+    <div class="works">
+      <article class="work rv">
+        <div class="w-shot"><div class="w-phone"><img src="assets/trabajos/caro-reg.jpg" alt="Planilla de registro del sistema de Caro Spa Health en el celular" loading="lazy" /></div></div>
+        <div class="w-body">
+          <span class="w-badge">Funcionando</span>
+          <span class="w-tag">Spa y estética · Venezuela</span>
+          <h3>Caro Spa Health</h3>
+          <ul>
+            <li>Fichas faciales y corporales con fotos de antes y después</li>
+            <li>Citas en línea y agenda del día</li>
+            <li>App del cliente con su estado de cuenta</li>
+            <li>Pagos en dólares, bolívares y USDT con la tasa del día</li>
+          </ul>
+          <p class="w-foot"><span>Sistema privado del negocio</span></p>
+        </div>
+      </article>
+      <article class="work rv">
+        <div class="w-shot"><div class="w-phone"><img src="assets/trabajos/jca.jpg" alt="Entrada al sistema de JCA Multiservicios en el celular" loading="lazy" /></div></div>
+        <div class="w-body">
+          <span class="w-badge">Funcionando</span>
+          <span class="w-tag">Aires, neveras y lavadoras · Venezuela</span>
+          <h3>JCA Multiservicios</h3>
+          <ul>
+            <li>Cotizaciones que el cliente aprueba desde su celular</li>
+            <li>Control de pagos y abonos de cada cliente</li>
+            <li>Avisos de mantenimiento cada 6 meses</li>
+            <li>Ganancias y gastos del mes con gráficas</li>
+          </ul>
+          <p class="w-foot"><span>Sistema privado del negocio</span></p>
+        </div>
+      </article>
+      <article class="work rv">
+        <div class="w-shot"><div class="w-phone"><img src="assets/trabajos/great-web.jpg" alt="Página web de Great Insurance Team en el celular" loading="lazy" /></div></div>
+        <div class="w-body">
+          <span class="w-badge">Funcionando</span>
+          <span class="w-tag">Agencia de seguros · Florida</span>
+          <h3>Great Insurance Team</h3>
+          <ul>
+            <li>Página web en español con cotización gratis</li>
+            <li>Sistema propio de la agencia con cotizador de planes</li>
+            <li>Cartas que el cliente firma por link desde su celular</li>
+            <li>Pendientes y seguimiento de cada cliente</li>
+          </ul>
+          <p class="w-foot"><a href="https://greatinsuranceteam.com" target="_blank" rel="noopener">Ver la página</a></p>
+        </div>
+      </article>
+      <article class="work rv">
+        <div class="w-shot"><div class="w-phone"><img src="assets/trabajos/barberia.jpg" alt="App de citas de una barbería en el celular" loading="lazy" /></div></div>
+        <div class="w-body">
+          <span class="w-badge demo">Demostración</span>
+          <span class="w-tag">Barbería · Venezuela</span>
+          <h3>App de citas para barbería</h3>
+          <ul>
+            <li>El cliente escoge barbero y hora desde su celular</li>
+            <li>Pago por Pago Móvil</li>
+            <li>“Paga Después” para clientes VIP</li>
+            <li>Galería de fotos y videos de los cortes</li>
+          </ul>
+          <p class="w-foot"><a href="https://barberia-citas-psi.vercel.app" target="_blank" rel="noopener">Probar la demostración</a></p>
+        </div>
+      </article>
     </div>
   </div>
 </section>
@@ -641,7 +749,7 @@ footer{border-top:1px solid var(--line);padding:46px 0 34px;background:#05070e}
 <!-- ============ CIERRE ============ -->
 <section class="final">
   <div class="wrap rv">
-    <h2><span class="blue">Usted lo sueña.</span><span class="green">Nosotros lo programamos.</span><span class="blue">Así de fácil.</span></h2>
+    <h2 class="neon"><span class="blue">Usted lo sueña.</span><span class="green">Nosotros lo programamos.</span><span class="blue">Así de fácil.</span></h2>
     <p>Cuéntenos lo que tiene en mente. Le explicamos cómo se puede hacer y usted decide, sin compromiso.</p>
     <a class="btn btn-green" href="https://wa.me/19548251214?text=Hola%20Consulting%20Enterprise%2C%20tengo%20una%20idea%20y%20quisiera%20que%20me%20orienten." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.728-.979zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>Hablar por WhatsApp</a>
     <a class="btn btn-ghost" href="#contacto">Llenar el formulario</a>
@@ -659,6 +767,7 @@ footer{border-top:1px solid var(--line);padding:46px 0 34px;background:#05070e}
         <h5>Servicios</h5>
         <a href="#servicios">Páginas web</a>
         <a href="#sistemas">Sistemas y CRM</a>
+        <a href="#trabajos">Trabajos realizados</a>
         <a href="#servicios">Logos 3D y video</a>
         <a href="#servicios">Crédito y contabilidad</a>
       </div>
@@ -704,12 +813,17 @@ footer{border-top:1px solid var(--line);padding:46px 0 34px;background:#05070e}
 
   /* aparición al bajar */
   var steps = document.getElementById('steps'), laptop = document.getElementById('laptop'), chart = document.getElementById('chart');
+  function show(el){
+    el.classList.add('in');
+    if (el.contains(chart) || el === laptop) {}
+  }
   function growChart(){ chart.querySelectorAll('i').forEach(function(b){ b.style.height = b.getAttribute('data-h') + '%'; }); laptop.classList.add('in'); }
   if ('IntersectionObserver' in window && !reduce) {
     var io = new IntersectionObserver(function(ents){
       ents.forEach(function(e){
         if (e.isIntersecting) {
           e.target.classList.add('in');
+          (function(t){ setTimeout(function(){ t.classList.add('done'); }, 1400); })(e.target);
           if (e.target.querySelector && e.target.querySelector('#laptop')) growChart();
           io.unobserve(e.target);
         }
@@ -750,6 +864,19 @@ footer{border-top:1px solid var(--line);padding:46px 0 34px;background:#05070e}
       });
       c.addEventListener('mouseleave', function(){ c.style.transform = ''; });
     });
+  }
+
+  /* en el celular: se ilumina la tarjeta que está en el centro de la pantalla, y la que se toca */
+  if (!fine && !reduce) {
+    var lits = [].slice.call(document.querySelectorAll('[data-tilt], .work')), litNow = null, tick = false;
+    function pickLit(){
+      tick = false; var mid = window.innerHeight / 2, best = null, bd = window.innerHeight * .3;
+      lits.forEach(function(el){ var r = el.getBoundingClientRect(), d = Math.abs(r.top + r.height / 2 - mid); if (d < bd) { bd = d; best = el; } });
+      if (best !== litNow) { if (litNow) litNow.classList.remove('lit'); if (best) best.classList.add('lit'); litNow = best; }
+    }
+    window.addEventListener('scroll', function(){ if (!tick) { tick = true; requestAnimationFrame(pickLit); } }, {passive:true});
+    lits.forEach(function(el){ el.addEventListener('touchstart', function(){ if (litNow && litNow !== el) litNow.classList.remove('lit'); el.classList.add('lit'); litNow = el; }, {passive:true}); });
+    pickLit();
   }
 
   /* fondo: red de puntos en 3D, suave */
@@ -793,41 +920,49 @@ footer{border-top:1px solid var(--line);padding:46px 0 34px;background:#05070e}
   }
 
   /* su marca en vivo */
-  var T = {
-    barberia:{tag:'Barbería', h:'Cortes y barba con cita, sin esperar', p:'Reserve su turno desde el celular y llegue a su hora.', b:'Reservar cita', i:['Cortes','Barba','Citas en línea'], dom:'barberia'},
-    restaurante:{tag:'Restaurante', h:'Comida casera, directo a su mesa', p:'Vea el menú del día y haga su pedido en un minuto.', b:'Hacer pedido', i:['Menú','Pedidos','Entregas'], dom:'restaurante'},
-    taller:{tag:'Taller mecánico', h:'Su carro en buenas manos', p:'Pida su cotización y siga el avance de la reparación.', b:'Pedir cotización', i:['Diagnóstico','Reparaciones','Seguimiento'], dom:'taller'},
-    clinica:{tag:'Clínica', h:'Su salud, con cita y sin vueltas', p:'Escoja el día y la hora de su consulta desde el teléfono.', b:'Pedir cita', i:['Consultas','Citas','Recordatorios'], dom:'clinica'},
-    tienda:{tag:'Tienda', h:'Lo que busca, a un mensaje de distancia', p:'Vea el catálogo con precios y pida por WhatsApp.', b:'Ver catálogo', i:['Catálogo','Ofertas','Pedidos'], dom:'tienda'},
-    spa:{tag:'Spa y estética', h:'Un momento para usted', p:'Escoja su tratamiento y reserve el horario que le quede mejor.', b:'Reservar cita', i:['Tratamientos','Paquetes','Citas'], dom:'spa'},
-    repuestos:{tag:'Repuestos', h:'El repuesto que necesita, sin buscar tanto', p:'Consulte si lo tenemos y su precio antes de salir de casa.', b:'Consultar repuesto', i:['Inventario','Precios','Pedidos'], dom:'repuestos'},
-    profesional:{tag:'Servicios profesionales', h:'Asesoría clara para sus decisiones', p:'Agende su consulta y envíe sus documentos en línea.', b:'Agendar consulta', i:['Servicios','Consultas','Documentos'], dom:'servicios'}
-  };
-  var bName = document.getElementById('bName'), bType = document.getElementById('bType'), sws = document.getElementById('swatches');
+  var G = {tag:'', h:'Lo que usted necesita, con atención de primera', p:'Conozca nuestros servicios y escríbanos directo por WhatsApp.', b:'Escríbanos', i:['Servicios','Precios','Contacto']};
+  var T = [
+    {k:/barber|peluq|corte/, h:'Cortes y barba con cita, sin esperar', p:'Reserve su turno desde el celular y llegue a su hora.', b:'Reservar cita', i:['Cortes','Barba','Citas en línea']},
+    {k:/restaur|comida|pizz|panad|pastel|arep|caf|empanad|hamburg|lunch|catering|dulce|torta/, h:'Hecho con cariño, directo a su mesa', p:'Vea el menú y haga su pedido en un minuto.', b:'Hacer pedido', i:['Menú','Pedidos','Entregas']},
+    {k:/taller|mec[aá]n|carro|auto|latoner|caucho/, h:'Su carro en buenas manos', p:'Pida su cotización y siga el avance de la reparación.', b:'Pedir cotización', i:['Diagnóstico','Reparaciones','Seguimiento']},
+    {k:/cl[ií]nic|m[eé]dic|doctor|dent|odont|salud|consultorio|pediatr|laborator|terap/, h:'Su salud, con cita y sin vueltas', p:'Escoja el día y la hora de su consulta desde el teléfono.', b:'Pedir cita', i:['Consultas','Citas','Recordatorios']},
+    {k:/spa|est[eé]tic|u[ñn]as|belleza|sal[oó]n|maquill|pesta/, h:'Un momento para usted', p:'Escoja su tratamiento y reserve el horario que le quede mejor.', b:'Reservar cita', i:['Tratamientos','Paquetes','Citas']},
+    {k:/repuest|moto|tractor|ferreter|autoparte/, h:'El repuesto que necesita, sin buscar tanto', p:'Consulte si lo tenemos y su precio antes de salir de casa.', b:'Consultar repuesto', i:['Inventario','Precios','Pedidos']},
+    {k:/aire|nevera|lavadora|refrigera|electric|plomer|reparac|mantenim|t[eé]cnic/, h:'Reparación y mantenimiento a domicilio', p:'Pida su servicio y reciba la cotización en su celular.', b:'Pedir servicio', i:['Reparación','Mantenimiento','Garantía']},
+    {k:/abogad|contad|seguro|asesor|impuest|notar|inmobili|bienes ra/, h:'Asesoría clara para sus decisiones', p:'Agende su consulta y envíe sus documentos en línea.', b:'Agendar consulta', i:['Servicios','Consultas','Documentos']},
+    {k:/tienda|ropa|zapat|boutique|bodega|abasto|venta|accesor|joyer|celular|perfum/, h:'Lo que busca, a un mensaje de distancia', p:'Vea el catálogo con precios y pida por WhatsApp.', b:'Ver catálogo', i:['Catálogo','Ofertas','Pedidos']}
+  ];
+  var bName = document.getElementById('bName'), bType = document.getElementById('bType');
   var msD = document.getElementById('msDesk'), msM = document.getElementById('msMob'), pUrl = document.getElementById('pUrl'), cta = document.getElementById('liveCta');
-  var color = '#2f8cff';
-  function esc(s){ return s.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  var c1 = '#1d4ed8', c2 = '#f5b301', cName = 'Azul y dorado';
+  function esc(x){ return x.replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+  function plain(x){ x = x.toLowerCase(); return x.normalize ? x.normalize('NFD').replace(/[\u0300-\u036f]/g, '') : x; }
   function initials(n){ var w = n.trim().split(/\s+/).filter(Boolean); return ((w[0]||'S').charAt(0) + (w[1] ? w[1].charAt(0) : '')).toUpperCase(); }
   function tint(hex, k){ var n = parseInt(hex.slice(1), 16), r = n >> 16, g = (n >> 8) & 255, b = n & 255;
     function m(v){ return Math.round(v * k + 255 * (1 - k)); } return 'rgb(' + m(r) + ',' + m(g) + ',' + m(b) + ')'; }
+  function pick(type){
+    var t = plain(type), raw = type.toLowerCase();
+    for (var i = 0; i < T.length; i++) { if (T[i].k.test(t) || T[i].k.test(raw)) return T[i]; }
+    return G;
+  }
   function render(){
-    var name = bName.value.trim() || 'Su Negocio', t = T[bType.value];
+    var name = bName.value.trim() || 'Su Negocio', type = bType.value.trim(), t = pick(type);
+    var tag = type ? type.charAt(0).toUpperCase() + type.slice(1) : 'Su negocio';
     var html = '<div class="ms-nav"><div class="ms-logo"><b>' + esc(initials(name)) + '</b>' + esc(name) + '</div><div class="ms-menu"><span>Inicio</span><span>Servicios</span><span>Contacto</span></div></div>' +
-      '<div class="ms-hero"><span class="ms-tag">' + t.tag + '</span><h4>' + t.h + '</h4><p>' + t.p + '</p><span class="ms-btn">' + t.b + '</span></div>' +
+      '<div class="ms-hero"><span class="ms-tag">' + esc(tag) + '</span><h4>' + t.h + '</h4><p>' + t.p + '</p><span class="ms-btn">' + t.b + '</span></div>' +
       '<div class="ms-items">' + t.i.map(function(x){ return '<div><i></i>' + x + '</div>'; }).join('') + '</div>';
     msD.innerHTML = html; msM.innerHTML = html;
-    var c1 = tint(color, .14), c2 = tint(color, .2);
-    [msD, msM].forEach(function(m){ m.style.setProperty('--c', color); m.style.setProperty('--c1', c1); m.style.setProperty('--c2', c2); });
-    var slug = name.toLowerCase().normalize ? name.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '') : name.toLowerCase();
-    slug = slug.replace(/[^a-z0-9]+/g, '') || 'sunegocio';
+    [msD, msM].forEach(function(m){
+      m.style.setProperty('--c', c1); m.style.setProperty('--s', c2);
+      m.style.setProperty('--c1', tint(c1, .12)); m.style.setProperty('--c2', tint(c1, .2));
+      m.style.setProperty('--s1', tint(c2, .16)); m.style.setProperty('--s2', tint(c2, .3));
+    });
+    var slug = plain(name).replace(/[^a-z0-9]+/g, '') || 'sunegocio';
     pUrl.textContent = 'www.' + slug + '.com';
-    var txt = 'Hola Consulting Enterprise, quiero una página como la muestra. Mi negocio se llama "' + name + '" y es: ' + t.tag + '.';
+    var txt = 'Hola Consulting Enterprise, quiero una página como la muestra. Mi negocio se llama "' + name + '"' + (type ? ', se dedica a: ' + type : '') + '.';
     cta.href = 'https://wa.me/19548251214?text=' + encodeURIComponent(txt);
   }
-  bName.addEventListener('input', render); bType.addEventListener('change', render);
-  sws.querySelectorAll('.sw').forEach(function(b){
-    b.addEventListener('click', function(){ sws.querySelectorAll('.sw').forEach(function(x){ x.classList.remove('on'); }); b.classList.add('on'); color = b.getAttribute('data-c'); render(); });
-  });
+  bName.addEventListener('input', render); bType.addEventListener('input', render);
   render();
 
   /* formulario: llega al correo por FormSubmit */
